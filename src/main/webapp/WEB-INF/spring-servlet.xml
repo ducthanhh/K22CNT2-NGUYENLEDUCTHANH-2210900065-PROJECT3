@@ -30,8 +30,8 @@
 		<property name="dataSource" ref="db"></property>
 	</bean>
 
-	<!-- Correct the package name to 'com.springmvc.dao.UserDao' -->
-	<bean id="dao" class="com.springmvc.dao.UserDao">
+	<!-- Correct the package name to 'com.springmvc.dao.NLDTadmin' -->
+	<bean id="dao" class="com.springmvc.dao.NLDTadmin">
 		<property name="template" ref="jt"></property>
 	</bean>
 </beans>

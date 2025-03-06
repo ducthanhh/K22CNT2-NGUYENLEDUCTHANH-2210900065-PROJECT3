@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +73,7 @@
 </head>
 <body>
     <h1>Thêm Lịch Khám Mới</h1>
-    <form:form method="post" action="save" modelAttribute="lichKham">
+    <form:form method="post" action="save" >
         <table>
             <tr>
                 <td>ID Người Dùng</td>
@@ -103,7 +102,7 @@
         </table>
     </form:form>
     <div style="text-align: center;">
-        <a href="viewform" class="back-link">Quay Lại</a>
+        <a href="viewform.jsp" class="back-link">Quay Lại</a>
     </div>
 </body>
 </html>

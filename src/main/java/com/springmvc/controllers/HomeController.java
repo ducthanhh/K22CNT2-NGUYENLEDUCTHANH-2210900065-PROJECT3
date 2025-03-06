@@ -20,17 +20,17 @@ public class HomeController {
     @Autowired  
     NLDTadmin dao; // sẽ tiêm dao từ tệp cấu hình XML  
       
-    @GetMapping("/saveform")  
-    public String showform(Model m){  
-    	m.addAttribute("command", new NLDTlichkham()); // Sử dụng NLDTlichkham
-    	return "saveform"; 
-    }  
-   
-    @PostMapping(value = "/save")
-	public String save(@ModelAttribute("user") NLDTlichkham user) { // Sử dụng NLDTlichkham
-		dao.save(user);
-		return "redirect:/viewform"; // sẽ chuyển hướng đến viewemp request mapping
-	}
+    @GetMapping("/saveform")
+    public String showForm(Model model) {
+        model.addAttribute("lichKham", new NLDTlichkham()); // Initialize the model attribute
+        return "saveform"; // Return the JSP view name
+    }
+
+    @PostMapping("/save")
+    public String saveLichKham(@ModelAttribute("lichKham") NLDTlichkham lichKham) {
+        // Save logic here
+        return "redirect:/success"; // Redirect to a success page
+    }
     
     /* Cung cấp danh sách người dùng trong đối tượng model */
 	@RequestMapping("/viewform")

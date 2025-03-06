@@ -37,13 +37,13 @@ public class NLDTadmin {
     }
 
     // Lấy theo ID
-    public NLDTlichkham getProductById(int id) {
+    public NLDTlichkham getById(int id) {
         String sql = "SELECT * FROM lichkham WHERE id_lichkham=?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<NLDTlichkham>(NLDTlichkham.class));
     }
 
     // Lấy danh sách tất cả 
-    public List<NLDTlichkham> getUser () {
+    public List<NLDTlichkham> getAll() {
         return template.query("SELECT * FROM lichkham", new RowMapper<NLDTlichkham>() {
             public NLDTlichkham mapRow(ResultSet rs, int row) throws SQLException {
                 NLDTlichkham p = new NLDTlichkham();
@@ -58,14 +58,20 @@ public class NLDTadmin {
         });
     }
 
-    // Lấy  theo ID (nên sửa lại tên phương thức cho đúng)
-    public NLDTlichkham getEmpById(int id) {
-        String sql = "SELECT * FROM lichkham WHERE id_lichkham=?";
-        return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<NLDTlichkham>(NLDTlichkham.class));
-    }
-
-    // Lấy danh sách  (nên sửa lại tên phương thức cho đúng)
+    // Lấy danh sách (phương thức đã hoàn chỉnh)
     public List<NLDTlichkham> getEmployees() {
         return template.query("SELECT * FROM lichkham", new RowMapper<NLDTlichkham>() {
-        }
-       
+            @Override
+            public NLDTlichkham mapRow(ResultSet rs, int rowNum) throws SQLException {
+                NLDTlichkham p = new NLDTlichkham();
+                p.setId_lich_kham(rs.getInt("id_lichkham"));
+                p.setId_nguoi_dung(rs.getInt("id_nguoidung"));
+                p.setId_bac_si(rs.getInt("id_bacsi"));
+                p.setGio_kham(rs.getTime("gio_kham"));
+                p.setNgay_kham(rs.getDate("ngay_kham"));
+                p.setTrang_thai(rs.getString("trang_thai"));
+                return p;
+            }
+        });
+    }
+}

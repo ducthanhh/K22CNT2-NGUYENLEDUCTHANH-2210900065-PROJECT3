@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employees List</title>
+    <title>danh sách </title>
     <style>
         table {
             width: 100%;
@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <h1>Employees List</h1>
+    <h1>lịch khám </h1>
     <table>
         <tr>
             <th>ID</th>
@@ -51,7 +51,7 @@
     </table>
 
     <div class="button-container">
-        <a href="saveform">Thêm</a>
+        <a href="saveform.jsp">Thêm</a>
         <input type="button" value="Back" onclick="window.history.back();" />
     </div>
 </body>

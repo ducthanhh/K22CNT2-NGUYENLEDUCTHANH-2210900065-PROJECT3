@@ -25,7 +25,7 @@
                     <i class="fas fa-phone-alt"></i>
                     <span class="text-lg font-bold">09999999</span>
                 </div>
-                <li><a class="bg-yellow-500 px-4 py-2 rounded-full text-white text-sm" href="dangky">ĐẶT LỊCH KHÁM</a></li>
+                <li><a class="bg-yellow-500 px-4 py-2 rounded-full text-white text-sm" href="viewform.jsp">ĐẶT LỊCH KHÁM</a></li>
             </div>
         </div>
     </header>
@@ -33,9 +33,9 @@
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex space-x-4">
                 <li><a class="text-gray-700" href="#">TRANG CHỦ</a></li>
-                <li><a class="text-gray-700" href="#">GIỚI THIỆU</a></li>
-                <li><a class="text-gray-700" href="#">DỊCH VỤ NỔI BẬT</a></li>
-                <li><a class="text-gray-700" href="#">ĐẶT LỊCH KHÁM </a></li>
+                <li><a class="text-gray-700" href="gioithieu.jsp">GIỚI THIỆU</a></li>
+                <li><a class="text-gray-700" href="dichvu.jsp">DỊCH VỤ NỔI BẬT</a></li>
+                <li><a class="text-gray-700" href="viewform.jsp">ĐẶT LỊCH KHÁM </a></li>
             </ul>
             <div class="relative">
                 <input class="px-4 py-2 rounded-full" placeholder="Tìm kiếm..." type="text"/>
@@ -71,7 +71,7 @@
             <p class="text-center text-lg">MANG NIỀM TIN</p>
             <div class="flex justify-center items-center space-x-4 mt-4">
                 <div class="bg-green-500 text-white px-4 py-2 rounded-full">LIÊN HỆ NGAY</div>
-               <li><a class="bg-purple-500 text-white px-4 py-2 rounded-full" href="viewform">ĐĂNG KÝ</a></li>
+               <li><a class="bg-purple-500 text-white px-4 py-2 rounded-full" href="dangky.jsp">ĐĂNG KÝ</a></li>
             </div>
             <div class="text-center mt-4">
                 <p>Liên hệ: 09999999999</p>
