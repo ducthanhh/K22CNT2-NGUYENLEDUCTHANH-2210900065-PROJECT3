@@ -5,47 +5,47 @@ import java.sql.Time;
 
 public class NLDTlichkham {
 
-	private int id_lich_kham;
-	private int id_nguoi_dung;
-	private int id_bac_si;
+	private int id_lichkham;
+	private int id_nguoidung;
+	private int id_bacsi;
 	private Date ngay_kham;
 	private Time gio_kham;
 	private String trang_thai;
 	/**
-	 * @return the id_lich_kham
+	 * @return the id_lichkham
 	 */
-	public int getId_lich_kham() {
-		return id_lich_kham;
+	public int getId_lichkham() {
+		return id_lichkham;
 	}
 	/**
-	 * @param id_lich_kham the id_lich_kham to set
+	 * @param id_lichkham the id_lichkham to set
 	 */
-	public void setId_lich_kham(int id_lich_kham) {
-		this.id_lich_kham = id_lich_kham;
+	public void setId_lichkham(int id_lichkham) {
+		this.id_lichkham = id_lichkham;
 	}
 	/**
-	 * @return the id_nguoi_dung
+	 * @return the id_nguoidung
 	 */
-	public int getId_nguoi_dung() {
-		return id_nguoi_dung;
+	public int getId_nguoidung() {
+		return id_nguoidung;
 	}
 	/**
-	 * @param id_nguoi_dung the id_nguoi_dung to set
+	 * @param id_nguoidung the id_nguoidung to set
 	 */
-	public void setId_nguoi_dung(int id_nguoi_dung) {
-		this.id_nguoi_dung = id_nguoi_dung;
+	public void setId_nguoidung(int id_nguoidung) {
+		this.id_nguoidung = id_nguoidung;
 	}
 	/**
-	 * @return the id_bac_si
+	 * @return the id_bacsi
 	 */
-	public int getId_bac_si() {
-		return id_bac_si;
+	public int getId_bacsi() {
+		return id_bacsi;
 	}
 	/**
-	 * @param id_bac_si the id_bac_si to set
+	 * @param id_bacsi the id_bacsi to set
 	 */
-	public void setId_bac_si(int id_bac_si) {
-		this.id_bac_si = id_bac_si;
+	public void setId_bacsi(int id_bacsi) {
+		this.id_bacsi = id_bacsi;
 	}
 	/**
 	 * @return the ngay_kham

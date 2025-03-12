@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -127,10 +128,10 @@ footer p {
             <div class="about-content">
                 <div class="image-container">
                     <!-- Gắn ảnh minh họa ở đây -->
-                    <img src="images/phongkham.jpg" alt="Ảnh Minh Họa Phòng Khám" class="about-image">
+                    <img src="https://phongkhamthaihoa.com/upload/filemanager/files/Screenshot%202567-06-17%20at%2009_01_45.png" alt="Ảnh Minh Họa Phòng Khám" class="about-image">
                 </div>
                 <div class="text-container">
-                    <p>Chào mừng bạn đến với <strong>Phòng Khám XYZ</strong>, nơi cung cấp dịch vụ chăm sóc sức khỏe chuyên nghiệp và tiện lợi. Với đội ngũ bác sĩ giàu kinh nghiệm và trang thiết bị y tế hiện đại, chúng tôi cam kết mang lại cho bạn một trải nghiệm khám bệnh tốt nhất.</p>
+                    <p>Chào mừng bạn đến với <strong>Phòng Khám ĐỨC THÀNH </strong>, nơi cung cấp dịch vụ chăm sóc sức khỏe chuyên nghiệp và tiện lợi. Với đội ngũ bác sĩ giàu kinh nghiệm và trang thiết bị y tế hiện đại, chúng tôi cam kết mang lại cho bạn một trải nghiệm khám bệnh tốt nhất.</p>
                     <p>Chúng tôi chuyên cung cấp các dịch vụ:</p>
                     <ul>
                         <li>Khám sức khỏe tổng quát</li>

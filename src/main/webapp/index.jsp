@@ -25,7 +25,7 @@
                     <i class="fas fa-phone-alt"></i>
                     <span class="text-lg font-bold">09999999</span>
                 </div>
-                <li><a class="bg-yellow-500 px-4 py-2 rounded-full text-white text-sm" href="viewform.jsp">ĐẶT LỊCH KHÁM</a></li>
+                <li><a class="bg-yellow-500 px-4 py-2 rounded-full text-white text-sm" href="lichkham/list">ĐẶT LỊCH KHÁM</a></li>
             </div>
         </div>
     </header>
