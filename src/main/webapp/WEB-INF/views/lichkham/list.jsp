@@ -1,62 +1,61 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Lịch Khám</title>
     <style>
-        <style>
         body {
-            background-color: #f4e1f1; /* Light purple background */
-            color: #4a3c55; /* Dark purple text color for contrast */
             font-family: Arial, sans-serif;
+            background-color: #f3e5f5; /* Màu nền tím nhạt */
             margin: 0;
             padding: 0;
         }
 
-        h1 {
-            color: #ffffff; /* White color for title */
+        header {
+            background-color: #9c27b0; /* Màu tím đậm */
+            color: white;
+            padding: 15px;
             text-align: center;
-            padding: 20px;
-            background-color: #9a7bb5; /* Lighter purple background for header */
+            font-size: 1.5em;
         }
 
         table {
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
-            background-color: #e2d1f1; /* Very light purple table background */
-            color: #4a3c55; /* Dark purple text in table */
+            background-color: white; /* Màu nền trắng cho bảng */
         }
 
         th, td {
-            border: 1px solid #d6a7e2; /* Light purple borders */
-            padding: 12px;
+            padding: 10px;
             text-align: left;
+            border: 1px solid #ddd;
         }
 
         th {
-            background-color: #d7aadf; /* Lighter purple for table headers */
-            color: #4a3c55; /* Dark purple text in headers */
+            background-color: #9c27b0; /* Màu tím đậm */
+            color: white;
+            font-weight: bold;
         }
 
         tr:nth-child(even) {
-            background-color: #f1d9f5; /* Even rows with lighter purple */
+            background-color: #f3e5f5; /* Màu nền cho các hàng chẵn */
         }
 
         tr:hover {
-            background-color: #d7aadf; /* Highlight rows with a bit darker purple on hover */
+            background-color: #e1bee7; /* Màu nền khi hover qua hàng */
         }
 
         a {
-            color: #9b6bbf; /* Soft purple color for links */
+            color: #9c27b0;
             text-decoration: none;
         }
 
         a:hover {
-            text-decoration: underline; /* Underline links on hover */
+            text-decoration: underline;
         }
 
         .button-container {
@@ -65,57 +64,32 @@
         }
 
         .button-container a {
-            background-color: #9a7bb5; /* Lighter purple button background */
-            color: #fff; /* White text for button */
+            background-color: #9c27b0; /* Màu nền tím */
+            color: white;
             padding: 10px 20px;
-            text-decoration: none;
-            margin-right: 10px;
             border-radius: 5px;
-            border: none;
+            font-size: 1.1em;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .button-container a:hover {
-            background-color: #bfa1c7; /* Slightly lighter on hover */
-        }
-
-        .button-container input[type="button"] {
-            padding: 10px 20px;
-            background-color: #9a7bb5;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .button-container input[type="button"]:hover {
-            background-color: #bfa1c7; /* Slightly lighter on hover */
+            background-color: #6a1b9a; /* Màu tím đậm hơn khi hover */
         }
     </style>
 </head>
 <body>
 
-    <h1>Danh Sách Lịch Khám</h1>
+    <header>
+        <h1>Danh Sách Lịch Khám</h1>
+    </header>
 
-    <!-- Display success message -->
-    <c:if test="${not empty success}">
-        <div class="message success">
-            <strong>Thành công!</strong> ${success}.
-        </div>
-    </c:if>
-
-    <!-- Display error message -->
-    <c:if test="${not empty error}">
-        <div class="message error">
-            <strong>Lỗi!</strong> ${error}.
-        </div>
-    </c:if>
-
-    <!-- Table for displaying Lịch Khám list -->
     <table>
         <thead>
             <tr>
-                <th>Lịch Khám</th>
-                <th> Người Dùng</th>
-                <th>mã Bác Sĩ</th>
+                <th>ID Lịch Khám</th>
+                <th>ID Người Dùng</th>
+                <th>ID Bác Sĩ</th>
                 <th>Ngày Khám</th>
                 <th>Giờ Khám</th>
                 <th>Trạng Thái</th>
@@ -123,26 +97,26 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="lich" items="${list}">
+            <c:forEach var="lichkham" items="${lichkhams}">
                 <tr>
-                    <td>${lich.id_lichkham}</td>
-                    <td>${lich.id_nguoidung}</td>
-                    <td>${lich.id_bacsi}</td>
-                    <td>${lich.ngay_kham}</td>
-                    <td>${lich.gio_kham}</td>
-                    <td>${lich.trang_thai}</td>
+                    <td>${lichkham.id_lichkham}</td>
+                    <td>${lichkham.id_nguoidung}</td>
+                    <td>${lichkham.id_bacsi}</td>
+                    <td>${lichkham.ngay_kham}</td>
+                    <td>${lichkham.gio_kham}</td>
+                    <td>${lichkham.trang_thai}</td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/lichkham/edit/${lich.id_lichkham}">Sửa</a> | 
-                        <a href="${pageContext.request.contextPath}/lichkham/delete/${lich.id_lichkham}" onclick="return confirm('Bạn có chắc muốn xóa lịch khám này?');">Xóa</a>
+                        <a href="${pageContext.request.contextPath}/lichkham/edit/${lichkham.id_lichkham}">Sửa</a> | 
+                        <a href="${pageContext.request.contextPath}/lichkham/delete/${lichkham.id_lichkham}" onclick="return confirm('Bạn có chắc muốn xóa?');">Xóa</a>
                     </td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
 
-    <!-- Link to Add New Lịch Khám -->
-    <br>
-    <a href="${pageContext.request.contextPath}/lichkham/add">Thêm Lịch Khám Mới</a>
+    <div class="button-container">
+        <a href="${pageContext.request.contextPath}/lichkham/add">Thêm Lịch Khám Mới</a>
+    </div>
 
 </body>
 </html>

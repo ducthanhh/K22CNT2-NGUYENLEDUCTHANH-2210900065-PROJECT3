@@ -1,8 +1,10 @@
 com\springmvc\controllers\HomeController.class
-com\springmvc\dao\NLDTadmin.class
 com\springmvc\beans\NLDTlichkham.class
-com\springmvc\dao\NLDTadmin$1.class
+com\springmvc\controllers\AdminController.class
+com\springmvc\controllers\HomeController$LichKhamController.class
+com\springmvc\dao\AdminDAO.class
 com\springmvc\beans\NLDTthanhtoan.class
 com\springmvc\beans\NLDTadmins.class
+com\springmvc\dao\NLDTlichkhamDAO.class
 com\springmvc\beans\NLDTbacsi.class
 com\springmvc\beans\NLDTnguoidung.class

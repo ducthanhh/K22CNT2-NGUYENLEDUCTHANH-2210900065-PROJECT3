@@ -32,10 +32,10 @@
     <nav class="bg-pink-200 py-2">
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex space-x-4">
-                <li><a class="text-gray-700" href="#">TRANG CHỦ</a></li>
+                <li><a class="text-gray-700" href="admin/list">TRANG CHỦ</a></li>
                 <li><a class="text-gray-700" href="gioithieu.jsp">GIỚI THIỆU</a></li>
-                <li><a class="text-gray-700" href="dichvu.jsp">DỊCH VỤ NỔI BẬT</a></li>
-                <li><a class="text-gray-700" href="viewform.jsp">ĐẶT LỊCH KHÁM </a></li>
+                <li><a class="text-gray-700" href="dichvu.jsp">LIÊN HỆ NGAY</a></li>
+                <li><a class="text-gray-700" href="lichkham/list">ĐẶT LỊCH KHÁM </a></li>
             </ul>
             <div class="relative">
                 <input class="px-4 py-2 rounded-full" placeholder="Tìm kiếm..." type="text"/>

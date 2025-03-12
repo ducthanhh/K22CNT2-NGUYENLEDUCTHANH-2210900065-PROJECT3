@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,87 +9,105 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3e5f5; /* Màu tím nhạt */
+            background-color: #f3e5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #9c27b0;
+            color: white;
+            padding: 15px;
             text-align: center;
         }
-        h2 {
-            color: #6a1b9a; /* Màu tím đậm */
-        }
+
         form {
-            background-color: #ffffff;
-            max-width: 400px;
-            margin: 20px auto;
+            background-color: white;
+            width: 50%;
+            margin: 30px auto;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #9c27b0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        input, textarea {
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
             width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #9c27b0;
+            padding: 10px;
+            margin-bottom: 15px;
             border-radius: 5px;
+            border: 1px solid #ddd;
         }
+
         input[type="submit"] {
             background-color: #9c27b0;
             color: white;
-            font-weight: bold;
             border: none;
-            padding: 10px;
             cursor: pointer;
-            transition: 0.3s;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
+
         input[type="submit"]:hover {
             background-color: #6a1b9a;
         }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            background-color: #9c27b0;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .button-container a:hover {
+            background-color: #6a1b9a;
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>Thêm Lịch Khám</h1>
-
-    <!-- Hiển thị thông báo thành công hoặc lỗi -->
-    <c:if test="${not empty success}">
-        <div class="message success">
-            <strong>Thành công!</strong> ${success}.
-        </div>
-    </c:if>
-    <c:if test="${not empty error}">
-        <div class="message error">
-            <strong>Lỗi!</strong> ${error}.
-        </div>
-    </c:if>
+    <header>
+        <h1>Thêm Lịch Khám Mới</h1>
+    </header>
 
     <form action="${pageContext.request.contextPath}/lichkham/save" method="post">
-        <div class="form-container">
-            <label for="id_lichkham">ID Lịch Khám</label>
-            <input type="text" name="id_lichkham" id="id_lichkham" value="${command.id_lichkham}" required>
+        <label for="id_nguoidung">ID Người Dùng</label>
+        <input type="text" id="id_nguoidung" name="id_nguoidung" required>
 
-            <label for="id_nguoidung">ID Người Dùng</label>
-            <input type="text" name="id_nguoidung" id="id_nguoidung" value="${command.id_nguoidung}" required>
+        <label for="id_bacsi">ID Bác Sĩ</label>
+        <input type="text" id="id_bacsi" name="id_bacsi" required>
 
-            <label for="id_bacsi">ID Bác Sĩ</label>
-            <input type="text" name="id_bacsi" id="id_bacsi" value="${command.id_bacsi}" required>
+        <label for="ngay_kham">Ngày Khám</label>
+        <input type="date" id="ngay_kham" name="ngay_kham" required>
 
-            <label for="ngay_kham">Ngày Khám</label>
-            <input type="date" name="ngay_kham" id="ngay_kham" value="${command.ngay_kham}" required>
+        <label for="gio_kham">Giờ Khám</label>
+        <input type="time" id="gio_kham" name="gio_kham" required>
 
-            <label for="gio_kham">Giờ Khám</label>
-            <input type="time" name="gio_kham" id="gio_kham" value="${command.gio_kham}" required>
+        <label for="trang_thai">Trạng Thái</label>
+        <select id="trang_thai" name="trang_thai" required>
+            <option value="Chưa Khám">Chưa Khám</option>
+            <option value="Đã Khám">Đã Khám</option>
+        </select>
 
-            <label for="trang_thai">Trạng Thái</label>
-            <select name="trang_thai" id="trang_thai" required>
-                <option value="Đang chờ" ${command.trang_thai == 'Đang chờ' ? 'selected' : ''}>Đang chờ</option>
-                <option value="Đã hoàn thành" ${command.trang_thai == 'Đã hoàn thành' ? 'selected' : ''}>Đã hoàn thành</option>
-                <option value="Đã hủy" ${command.trang_thai == 'Đã hủy' ? 'selected' : ''}>Đã hủy</option>
-            </select>
-
-            <button type="submit">Lưu Lịch Khám</button>
-        </div>
+        <input type="submit" value="Thêm Lịch Khám">
     </form>
 
-    <a href="${pageContext.request.contextPath}/lichkham/list">Trở lại danh sách Lịch Khám</a>
+    <div class="button-container">
+        <a href="${pageContext.request.contextPath}/lichkham/list">Trở lại danh sách Lịch Khám</a>
+    </div>
 
 </body>
 </html>

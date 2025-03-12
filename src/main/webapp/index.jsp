@@ -32,10 +32,10 @@
     <nav class="bg-pink-200 py-2">
         <div class="container mx-auto flex justify-between items-center">
             <ul class="flex space-x-4">
-                <li><a class="text-gray-700" href="#">TRANG CHỦ</a></li>
+                <li><a class="text-gray-700" href="admin/list">TÀI KHOẢN</a></li>
                 <li><a class="text-gray-700" href="gioithieu.jsp">GIỚI THIỆU</a></li>
-                <li><a class="text-gray-700" href="dichvu.jsp">DỊCH VỤ NỔI BẬT</a></li>
-                <li><a class="text-gray-700" href="viewform.jsp">ĐẶT LỊCH KHÁM </a></li>
+                <li><a class="text-gray-700" href="dichvu.jsp">LIÊN HỆ NGAY</a></li>
+                <li><a class="text-gray-700" href="lichkham/list">ĐẶT LỊCH KHÁM </a></li>
             </ul>
             <div class="relative">
                 <input class="px-4 py-2 rounded-full" placeholder="Tìm kiếm..." type="text"/>
@@ -70,8 +70,8 @@
             <h2 class="text-2xl font-bold text-center">UY TÍN-CHẤT LƯỢNG</h2>
             <p class="text-center text-lg">MANG NIỀM TIN</p>
             <div class="flex justify-center items-center space-x-4 mt-4">
-                <div class="bg-green-500 text-white px-4 py-2 rounded-full">LIÊN HỆ NGAY</div>
-               <li><a class="bg-purple-500 text-white px-4 py-2 rounded-full" href="dangky.jsp">ĐĂNG KÝ</a></li>
+                 <li><a  class="bg-green-500 text-white px-4 py-2 rounded-full" href="dichvu.jsp">LIÊN HỆ NGAY</a></li>
+               <li><a class="bg-purple-500 text-white px-4 py-2 rounded-full" href="admin/add">ĐĂNG KÝ</a></li>
             </div>
             <div class="text-center mt-4">
                 <p>Liên hệ: 09999999999</p>

@@ -1,7 +1,7 @@
 package com.springmvc.controllers;
 
 import com.springmvc.beans.NLDTlichkham;
-import com.springmvc.dao.NLDTadmin;
+import com.springmvc.dao.NLDTlichkhamDAO;  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,73 +14,42 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private NLDTadmin lichKhamDao;
+    private NLDTlichkhamDAO lichKhamDao;
 
-    // Hiển thị danh sách tất cả lịch khám
     @GetMapping("/list")
-    public String viewLichKham(Model model,
-                               @RequestParam(value = "success", required = false) String success,
-                               @RequestParam(value = "error", required = false) String error) {
-        List<NLDTlichkham> list = lichKhamDao.getAlllichkham();
-        model.addAttribute("list", list);
-        model.addAttribute("success", success);
-        model.addAttribute("error", error);
-        return "lichkham/list"; // View sẽ là "lichkham/list.jsp" hoặc "lichkham/list.html"
+    public String viewLichKham(Model model) {
+        List<NLDTlichkham> lichkhams = lichKhamDao.getAllLichKham();
+        model.addAttribute("lichkhams", lichkhams);
+        return "lichkham/list"; // Sẽ trả về trang danh sách Lịch Khám
     }
-
-    // Hiển thị form thêm lịch khám
+    // Thêm lịch khám
     @GetMapping("/add")
     public String showAddForm(Model model) {
-        model.addAttribute("command", new NLDTlichkham());
-        return "lichkham/add"; // View sẽ là "lichkham/add.jsp" hoặc "lichkham/add.html"
+        return "lichkham/add";  // Trả về trang add.jsp
     }
 
-    // Lưu lịch khám mới
+    // Lưu lịch khám
     @PostMapping("/save")
-    public String save(@ModelAttribute("command") NLDTlichkham lichkham) {
-        try {
-            lichKhamDao.save(lichkham);
-            return "redirect:/lichkham/list?success=added";
-        } catch (Exception e) {
-            return "redirect:/lichkham/list?error=add_failed";
-        }
+    public String saveLichKham(@ModelAttribute NLDTlichkham lichKham) {
+        lichKhamDao.save(lichKham);
+        return "redirect:/lichkham/list";  // Quay lại danh sách
     }
 
-    // Hiển thị form chỉnh sửa lịch khám
+    // Sửa lịch khám
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable int id, Model model) {
-        NLDTlichkham lichkham = lichKhamDao.getLichKhamById(id);
-        if (lichkham == null) {
-            return "redirect:/lichkham/list?error=notfound";
-        }
-        model.addAttribute("command", lichkham);
-        return "lichkham/edit"; // View sẽ là "lichkham/edit.jsp" hoặc "lichkham/edit.html"
+    public String showEditForm(@PathVariable("id") int id, Model model) {
+    	NLDTlichkham lichKham = lichKhamDao.findById(id);  // Lấy thông tin lịch khám từ DB
+        model.addAttribute("lichkham", lichKham);
+        return "lichkham/edit";  // Trả về trang edit.jsp
     }
 
     // Cập nhật lịch khám
     @PostMapping("/update")
-    public String update(@ModelAttribute("command") NLDTlichkham lichkham) {
-        try {
-            lichKhamDao.update(lichkham);
-            return "redirect:/lichkham/list?success=updated";
-        } catch (Exception e) {
-            return "redirect:/lichkham/list?error=update_failed";
-        }
+    public String updateNLDTlichkham(@ModelAttribute NLDTlichkham lichKham) {
+        lichKhamDao.update(lichKham);
+        return "redirect:/lichkham/list";  // Quay lại danh sách
     }
 
-    // Xóa lịch khám
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id) {
-        NLDTlichkham lichkham = lichKhamDao.getLichKhamById(id);
-        if (lichkham == null) {
-            return "redirect:/lichkham/list?error=notfound";
-        }
-        try {
-            lichKhamDao.delete(id);
-            return "redirect:/lichkham/list?success=deleted";
-        } catch (Exception e) {
-            return "redirect:/lichkham/list?error=delete_failed";
-        }
-    }
-
+    // Các phương thức khác như delete, list...
 }
+
